@@ -64,7 +64,7 @@ class Button implements ButtonPrototype<Button> {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        Button button = (Button) obj;
+        final Button button = (Button) obj;
         return this.width == button.width &&
                 this.height == button.height &&
                 this.text.equals(button.text) &&

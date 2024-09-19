@@ -17,6 +17,12 @@ public class Prototype {
         Button button = new Button("Click me", "blue", 100, 50);
         Button clonedButton = button.duplicate();
 
+        Button referenceButton = button;
+        Button testButton = new Button("Click me", "blue", 100, 50);
+
+        System.out.println("Same hash comparing with reference button: " + (button.sameHash(referenceButton)));
+        System.out.println("Same hash comparing with test button: " + (button.sameHash(testButton)));
+
         System.out.println("Button: " + button);
         System.out.println("Cloned Button: " + clonedButton);
 
@@ -69,6 +75,14 @@ class Button implements ButtonPrototype<Button> {
                 this.height == button.height &&
                 this.text.equals(button.text) &&
                 this.color.equals(button.color);
+    }
+
+    public boolean sameHash(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        final Button button = (Button) obj;
+        return this.hashCode() == button.hashCode();
     }
 
     @Override

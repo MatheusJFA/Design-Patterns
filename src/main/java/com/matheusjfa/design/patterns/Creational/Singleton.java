@@ -4,9 +4,11 @@ package com.matheusjfa.design.patterns.Creational;
  * The Singleton Pattern ensures that a class has only one instance and provides a global point of access to it.
  * In this case, the Singleton Pattern is used to create a single instance of the Singleton class.
  * The Database class is the Singleton class, and the instance method is the Singleton Method.
+ * HashCode is used to compare the instances.
+ * The main method is used to create a single instance of the Singleton class.
  *
  * Output:
- *
+ * Equality: true
  * */
 public class Singleton {
     public static void main(String[] args) {
@@ -31,8 +33,8 @@ class Database {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) return true; // Verify if the objects have the same reference
+        if (obj == null || getClass() != obj.getClass()) return false; // Verify if the objects are from the same class
 
         final Database database = (Database) obj;
         return this.hashCode() == database.hashCode();

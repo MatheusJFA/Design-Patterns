@@ -78,11 +78,11 @@ class Button implements ButtonPrototype<Button> {
     }
 
     public boolean sameHash(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) return true; // Verify if the objects have the same reference
+        if (obj == null || getClass() != obj.getClass()) return false; // Verify if the objects are from the same class
 
-        final Button button = (Button) obj;
-        return this.hashCode() == button.hashCode();
+        final Button button = (Button) obj; // Cast the object to the class type
+        return this.hashCode() == button.hashCode(); // Verify if the objects have the same hash code
     }
 
     @Override
